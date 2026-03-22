@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 200 20% 98%;
+    --foreground: 210 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    --primary: 207 90% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 60% 92%;
+    --secondary-foreground: 207 90% 25%;
+
+    --muted: 200 20% 95%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 185 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 207 90% 45%;
+
+    --radius: 0.75rem;
+
+    --water-deep: 210 80% 30%;
+    --water-mid: 207 90% 45%;
+    --water-light: 195 80% 70%;
+    --water-pale: 190 60% 92%;
+    --water-glow: 185 70% 45%;
+
+    --gradient-water: linear-gradient(135deg, hsl(210, 80%, 30%), hsl(207, 90%, 45%), hsl(185, 70%, 45%));
+    --gradient-hero: linear-gradient(180deg, hsl(210, 80%, 20%) 0%, hsl(207, 90%, 35%) 50%, hsl(195, 80%, 55%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(195, 60%, 97%) 100%);
+
+    --shadow-water: 0 10px 40px -10px hsl(207 90% 45% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(207 90% 45% / 0.12);
+    --shadow-card-hover: 0 12px 40px -8px hsl(207 90% 45% / 0.25);
+
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 207 90% 45%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 190 60% 92%;
+    --sidebar-accent-foreground: 207 90% 25%;
+    --sidebar-border: 200 20% 88%;
+    --sidebar-ring: 207 90% 45%;
+  }
+
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 92%;
+    --card: 220 20% 14%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 20% 14%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 207 90% 55%;
+    --primary-foreground: 220 20% 10%;
+    --secondary: 210 30% 20%;
+    --secondary-foreground: 207 90% 75%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 185 70% 45%;
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 207 90% 55%;
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 207 90% 55%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 210 30% 20%;
+    --sidebar-accent-foreground: 207 90% 75%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 207 90% 55%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .gradient-water {
+    background: var(--gradient-water);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  .shadow-water {
+    box-shadow: var(--shadow-water);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  .text-gradient-water {
+    background: var(--gradient-water);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Water ripple animation */
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes wave {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.55); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+
+@keyframes bubble {
+  0% { transform: translateY(100%) scale(0); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes droplet {
+  0% { transform: translateY(-20px) scale(0.8); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.animate-ripple {
+  animation: ripple 1.5s ease-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.animate-bubble {
+  animation: bubble 4s ease-in infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-droplet {
+  animation: droplet 0.5s ease-out forwards;
+}
+
+/* Scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Water wave decoration */
+.wave-decoration {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 200%;
+  height: 40px;
+  background: hsl(var(--background));
+  border-radius: 100% 100% 0 0;
+}
