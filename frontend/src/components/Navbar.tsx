@@ -4,7 +4,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { useAuth } from '@/lib/AuthContext';
 import { Language } from '@/lib/translations';
 import { Menu, X, Globe, Droplets, LogIn, User } from 'lucide-react';
-import logo from '@/assets/logo.jpeg'
+import logo from '@/assets/logo.png'
 
 const Navbar = () => {
   const { t, lang, setLang } = useLanguage();
