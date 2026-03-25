@@ -30,7 +30,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       
       {/* ── Temporary backend connection test ── */}
-      {/* <div className="p-6 bg-gray-100 rounded-lg mb-8 max-w-2xl mx-auto border border-gray-300">
+      <div className="p-6 bg-gray-100 rounded-lg mb-8 max-w-2xl mx-auto border border-gray-300">
         <h2 className="text-xl font-semibold mb-2">Backend Connection Test</h2>
         <p className="text-lg">
           Status:{' '}
@@ -47,7 +47,7 @@ const Index = () => {
         <p className="text-sm text-gray-500 mt-1">
           (Expected: "Hello from FastAPI! Your Lovable frontend is now connected 🎉")
         </p>
-      </div> */}
+      </div>
 
       <Navbar />
       <HeroSection />
